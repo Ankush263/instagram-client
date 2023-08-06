@@ -19,7 +19,11 @@ function signup() {
 		<Box className={styles.page}>
 			<Box className={styles.container} sx={{ width: '350px' }}>
 				<Box className="border-black mt-10">
-					<img src="/image/instagram-txt.png" className="w-48 mb-3" alt="#" />
+					<img
+						src="/image/instagram-txt-white.png"
+						className="w-48 mb-3"
+						alt="#"
+					/>
 				</Box>
 				<Box
 					sx={{
@@ -38,7 +42,7 @@ function signup() {
 					<img src="/image/facebook-white.png" className="w-7 mr-1" alt="#" />
 					<p className="text-white font-semibold">Log in with Facebook</p>
 				</Box>
-				<Box className="w-9/12 mt-5 flex justify-between items-center">
+				<Box className="w-9/12 mt-5 mb-5 flex justify-between items-center">
 					<Box className="border-b-2 border-black w-4/12 text-lightGray"></Box>
 					<Box className="text-sm ">OR</Box>
 					<Box className="border-b-2 border-black w-4/12 text-lightGray"></Box>

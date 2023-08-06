@@ -62,7 +62,7 @@ function login() {
 					<Box className={styles.Box} sx={{ width: '350px' }}>
 						<Box className="border-black mt-10">
 							<img
-								src="/image/instagram-txt.png"
+								src="/image/instagram-txt-white.png"
 								className="w-48 mb-3"
 								alt="#"
 							/>
