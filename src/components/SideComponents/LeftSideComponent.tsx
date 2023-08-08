@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
-import { GoHomeFill, GoHome, GoSearch } from 'react-icons/go';
+import { GoHomeFill, GoHome } from 'react-icons/go';
 import { MdOutlineExplore, MdExplore } from 'react-icons/md';
-import { BiMoviePlay } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
-import { TbSearch } from 'react-icons/tb';
 import { SlMenu } from 'react-icons/sl';
 import { FaUserCircle } from 'react-icons/fa';
-import NotificationOutline from '../icons/NotificationOutline';
-import NotificationFilled from '../icons/NotificationFilled';
 import VideoOutline from '../icons/VideoOutline';
 import VideoFilled from '../icons/VideoFilled';
 import MessageOutline from '../icons/MessageOutline';
 import MessageFilled from '../icons/MessageFilled';
-import CreateOutline from '../icons/CreateOutline';
-import CreateFilled from '../icons/CreateFilled';
 import Link from 'next/link';
 import SearchBar from '../popupBar/SearchBar';
+import CreatePostPopup from '../popupBar/CreatePostPopup';
+import NotificationBar from '../popupBar/NotificationBar';
 
 function LeftSideComponent() {
 	const [url, setUrl] = useState<any>('/');
@@ -27,9 +23,9 @@ function LeftSideComponent() {
 	const styles = {
 		component: `w-full h-full border-r-2 border-gray flex flex-col`,
 		image: `w-full h-20 mt-3 flex justify-center items-center`,
-		childBox: `w-8/12 ml-6 mt-7 flex flex-col justify-start items-start`,
-		sideBox: `flex justify-center items-center cursor-pointer mb-8`,
-		iconBox: `w-full h-full flex justify-center items-center`,
+		childBox: `w-9/12 ml-6 mt-7 flex flex-col justify-start items-start`,
+		sideBox: `w-full flex justify-start items-center cursor-pointer mb-3 hover:bg-gray rounded-lg py-2 px-0.5`,
+		iconBox: `w-full h-full flex justify-start items-center`,
 		bottomContainer: `h-24 w-6/12 mt-auto ml-6 flex justify-start items-center cursor-pointer`,
 	};
 	return (
@@ -59,10 +55,6 @@ function LeftSideComponent() {
 				</Box>
 
 				<Box className={styles.sideBox}>
-					{/* <Box className={styles.iconBox}>
-						<GoSearch size={28} />
-						<p className="ml-3">Search</p>
-					</Box> */}
 					<SearchBar />
 				</Box>
 
@@ -83,11 +75,19 @@ function LeftSideComponent() {
 				</Box>
 
 				<Box className={styles.sideBox}>
-					<Box className={styles.iconBox}>
-						<VideoOutline />
-						{/* <VideoFilled /> */}
-						<p className="ml-3">Reels</p>
-					</Box>
+					{url === '/main/ReelsPage' ? (
+						<Box className={styles.iconBox}>
+							<VideoFilled />
+							<p className="ml-3 font-bold">Reels</p>
+						</Box>
+					) : (
+						<Link href={`/main/ReelsPage`}>
+							<Box className={styles.iconBox}>
+								<VideoOutline />
+								<p className="ml-3">Reels</p>
+							</Box>
+						</Link>
+					)}
 				</Box>
 
 				<Box className={styles.sideBox}>
@@ -99,19 +99,11 @@ function LeftSideComponent() {
 				</Box>
 
 				<Box className={styles.sideBox}>
-					<Box className={styles.iconBox}>
-						<NotificationOutline />
-						{/* <NotificationFilled /> */}
-						<p className="ml-3">Notifications</p>
-					</Box>
+					<NotificationBar />
 				</Box>
 
 				<Box className={styles.sideBox}>
-					<Box className={styles.iconBox}>
-						<CreateOutline />
-						{/* <CreateFilled /> */}
-						<p className="ml-3">Create</p>
-					</Box>
+					<CreatePostPopup />
 				</Box>
 
 				<Box className={styles.sideBox}>
